@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/tool_bar_post_forum"
+            android:layout_height="80dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="60dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/img_avatar"
+                android:src="@drawable/photoshop"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="60dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Ngoc Sang"
+                android:layout_marginTop="12dp"
+                android:id="@+id/tv_name_user"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img_avatar"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="1 giờ"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
+                android:layout_toRightOf="@+id/img_avatar"
+                android:layout_below="@+id/tv_name_user"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/btn_star_not_active"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/color_gray"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:id="@+id/tv_cotent_post_forum"
+            android:text="Bắt đầu làm công nghệ phần mềm nào !!!"
+            android:layout_below="@+id/tool_bar_post_forum"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/tv_cotent_post_forum"
+            android:src="@drawable/photoshop"
+            android:layout_marginTop="5dp"
+            android:id="@+id/img_content_post"
+            android:scaleType="centerCrop"
+            android:layout_height="300dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/status_bar_post_forum"
+            android:layout_below="@+id/img_content_post"
+            android:layout_height="30dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/icon_btn_like"
+                android:src="@drawable/icon_like"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="25"
+                android:layout_toRightOf="@+id/icon_btn_like"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="25 bình luận"
+                android:layout_marginTop="5dp"
+                android:id="@+id/tv_number_comment"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/tv_number_share"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="3 lượt chia sẻ"
+                android:id="@+id/tv_number_share"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/color_gray"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_height="1dp"></View>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/status_bar_post_forum"
+            android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Thích"
+                    android:drawablePadding="4dp"
+                    android:id="@+id/btn_like"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerVertical="true"
+                    android:drawableLeft="@drawable/btn_like_not_active"
+                    android:textColor="@color/color_gray"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Bình luận"
+                    android:drawablePadding="4dp"
+                    android:id="@+id/btn_cmt"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:drawableLeft="@drawable/btn_comment"
+                    android:textColor="@color/color_gray"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Chia sẻ"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/btn_share"
+                    android:drawablePadding="4dp"
+                    android:drawableLeft="@drawable/share"
+                    android:textColor="@color/color_gray"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

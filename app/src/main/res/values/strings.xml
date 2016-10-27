@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Study English</string>
+    <string name="btn_home">Trang Chủ</string>
+    <string name="btn_forum">Diễn Đàn</string>
+    <string name="btn_study">Học Tập</string>
+    <string name="btn_setting">Cài Đặt</string>
+    <string name="btn_benefit">Tiện Ích</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="log_out">Đăng suất</string>
+    <string name="close_drawer">Close Drawer</string>
+</resources>
