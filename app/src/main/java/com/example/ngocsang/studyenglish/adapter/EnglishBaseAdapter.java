@@ -12,8 +12,8 @@ import java.util.List;
  * Created by Ngoc Sang on 10/5/2016.
  */
 public abstract class EnglishBaseAdapter<T> extends BaseAdapter{
-    private List<T> mData;
-    private Context mContext;
+    public List<T> mData;
+    public Context mContext;
     private LayoutInflater inflater;
     public EnglishBaseAdapter(List<T> mData,Context context)
     {

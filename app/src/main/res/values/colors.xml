@@ -5,4 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <color name="color_toolbar">#00E676</color>
     <color name="color_gray">#ACB1B5</color>
+    <color name="Blue_Grey">#CFD8DC</color>
+    <color name="Deep_Orange">#FF8A65</color>
+    <color name="color_white">#ffffff</color>
+    <color name="cyan">#18ffff</color>
+    <color name="Teal">#4DB6AC</color>
+    <color name="blue"> #2196f3</color>
+    <color name="red">#f44336</color>
+    <color name="color_black">#000000</color>
 </resources>

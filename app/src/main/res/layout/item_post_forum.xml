@@ -13,7 +13,7 @@
                 android:layout_width="60dp"
                 android:layout_alignParentLeft="true"
                 android:id="@+id/img_avatar"
-                android:src="@drawable/photoshop"
+                android:src="@drawable/avatar"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_height="60dp" />

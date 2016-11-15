@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="180dp"
+    android:id="@+id/root_item_grammar"
+    android:clickable="true"
+    android:background="@android:color/white"
+    android:layout_height="240dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:textSize="15dp"
+    android:text="Bài 1:Hiện tại đơn,hiện tại tiếp diễn"
+    android:layout_centerHorizontal="true"
+    android:paddingLeft="5dp"
+    android:lines="3"
+
+    android:paddingRight="5dp"
+    android:gravity="center"
+    android:layout_marginTop="5dp"
+    android:id="@+id/tv_title_grammar"
+    android:layout_height="wrap_content" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="80dp"
+        android:id="@+id/img_icon_grammar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/tv_title_grammar"
+        android:src="@drawable/item_grammar"
+        android:layout_height="80dp" />
+    <ProgressBar
+        android:layout_width="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:indeterminate="false"
+        android:max="100"
+        android:id="@+id/progress_bar_grammar"
+        android:background="@drawable/back_ground_progressbar"
+        android:progress="0"
+        android:layout_below="@+id/img_icon_grammar"
+        android:layout_height="6dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tv_percent_level"
+        android:text="0%"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/progress_bar_grammar"
+        android:layout_below="@+id/img_icon_grammar"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="100dp"
+        android:text="Luyện tập"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_practice"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/progress_bar_grammar"
+        android:background="@drawable/background_btn"
+        android:layout_height="30dp" />
+</RelativeLayout>

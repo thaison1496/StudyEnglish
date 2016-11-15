@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout=(DrawerLayout)findViewById(R.id.drawerLayout);
         navigationView=(NavigationView)findViewById(R.id.navigationView);
         toolbar=(Toolbar)findViewById(R.id.tool_bar);
-        headerLayout=navigationView.inflateHeaderView(R.layout.layout_header);
 
     }
     private void init()
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_menu);
 
     }
     private void declareClicks()
@@ -72,7 +71,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawerLayout.openDrawer(GravityCompat.START);
             return true;
         }
-        return super.onOptionsItemSelected(item);
+         return super.onOptionsItemSelected(item);
+
+
     }
 
     @Override
@@ -81,8 +82,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
+        else {
+            super.onBackPressed();
+        }
 
-        super.onBackPressed();
+
     }
 
     @Override
@@ -124,6 +128,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             transaction.addToBackStack(null);
         }
         transaction.replace(R.id.frame_container,fragment,tag);
+        transaction.commit();
+    }
+    public void replaceFullScreen(Fragment fragment,boolean addBackToStack,String tag)
+    {
+        FragmentManager manager=getSupportFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+        if(addBackToStack)
+        {
+            transaction.addToBackStack(null);
+        }
+        transaction.replace(R.id.main_root,fragment,tag);
         transaction.commit();
     }
 }

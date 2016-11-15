@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "509620047306",
+    "firebase_url": "https://study-english-bf06d.firebaseio.com",
+    "project_id": "study-english-bf06d",
+    "storage_bucket": "study-english-bf06d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509620047306:android:6fe85b458af31f5a",
+        "android_client_info": {
+          "package_name": "com.example.ngocsang.studyenglish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509620047306-qa73jjmhbcsvrf1q93ifpl9esr0b73kf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ngocsang.studyenglish",
+            "certificate_hash": "1B629F4A171E05218F6A9758E3C3A785F744DC89"
+          }
+        },
+        {
+          "client_id": "509620047306-edpcv9lflnot8no1iiv2bhniaic1spjj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6u4xb1EIfE8ZNTFcsyDdL19XNzhcV6Lw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509620047306-edpcv9lflnot8no1iiv2bhniaic1spjj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

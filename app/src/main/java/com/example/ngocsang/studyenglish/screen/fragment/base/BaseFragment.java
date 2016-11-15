@@ -1,4 +1,4 @@
-package com.example.ngocsang.studyenglish.screen.fragment;
+package com.example.ngocsang.studyenglish.screen.fragment.base;
 
 import android.content.Context;
 import android.os.Bundle;
