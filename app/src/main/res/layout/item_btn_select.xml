@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="match_parent"
-    android:layout_height="60dp">
-<TextView
-    android:layout_width="40dp"
-    android:background="@drawable/background_circle"
-    android:text="A"
-    android:layout_marginLeft="10dp"
-    android:layout_centerVertical="true"
-    android:textColor="@android:color/white"
-    android:gravity="center"
-    android:id="@+id/tv_title_alphabet"
-    android:textSize="20dp"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/main_custom_btn"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_width="40dp"
+            android:background="@drawable/background_circle"
+            android:text="A"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:id="@+id/tv_title_alphabet"
+            android:textSize="20dp"
 
-    android:layout_height="40dp" />
+            android:layout_height="40dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:text=" not converve"
+            android:id="@+id/tv_content_answer"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_title_alphabet"
+            android:textSize="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
-        android:text=" not converve"
-        android:id="@+id/tv_content_answer"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/tv_title_alphabet"
+        android:gravity="center"
+        android:paddingRight="5dp"
+        android:visibility="gone"
+        android:paddingLeft="5dp"
+        android:layout_below="@+id/main_custom_btn"
+        android:layout_marginTop="5dp"
+        android:text="vu ngoc sang"
         android:textSize="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="10dp"
-
+        android:paddingTop="5dp"
+        android:id="@+id/tv_sub_answer"
         android:layout_height="wrap_content" />
+
+
 </RelativeLayout>

@@ -46,6 +46,7 @@ public class DetailGrammarFragment extends BaseFullScreenFragment{
             public void onClick(View v) {
                 ContestGrammarFragment grammarFragment=new ContestGrammarFragment();
                 grammarFragment.setArrQuestion(dataBaseManager.getQuestionContest());
+                grammarFragment.setItemGrammar(itemGrammar);
                 mActivity.replaceFullScreen(grammarFragment,true, TagFragment.CONTEST_FRAGMENT);
             }
         });

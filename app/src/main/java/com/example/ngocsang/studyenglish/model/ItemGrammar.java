@@ -5,7 +5,7 @@ package com.example.ngocsang.studyenglish.model;
  */
 
 public class ItemGrammar {
-private int indexGrammar,level;
+private int indexGrammar,level,id;
     private String titleGrammar;
 
     public int getIndexGrammar() {
@@ -40,9 +40,20 @@ private int indexGrammar,level;
         this.contentGrammar = contentGrammar;
     }
 
-    public ItemGrammar(int indexGrammar, int level, String titleGrammar, String contentGrammar) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+
+        this.id = id;
+    }
+
+    public ItemGrammar(int id, int indexGrammar, int level, String titleGrammar, String contentGrammar) {
 
         this.indexGrammar = indexGrammar;
+        this.id=id;
+
         this.level = level;
         this.titleGrammar = titleGrammar;
         this.contentGrammar = contentGrammar;

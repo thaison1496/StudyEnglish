@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,7 +17,8 @@ import com.example.ngocsang.studyenglish.R;
  */
 
 public class ItemBtnSelect extends RelativeLayout{
-    private TextView tvContentBtn,tvTitle;
+    private TextView tvContentBtn,tvTitle,tvSubAnswer;
+    private RelativeLayout mainBtn;
     private Context context;
 
     public ItemBtnSelect(Context context) {
@@ -45,12 +47,62 @@ public class ItemBtnSelect extends RelativeLayout{
         inflate(context, R.layout.item_btn_select,this);
         tvContentBtn=(TextView)findViewById(R.id.tv_content_answer);
         tvTitle=(TextView)findViewById(R.id.tv_title_alphabet);
+        tvSubAnswer=(TextView)findViewById(R.id.tv_sub_answer);
+        mainBtn=(RelativeLayout)findViewById(R.id.main_custom_btn);
 
     }
     public void initData(String title,String content)
     {
         tvTitle.setText(title);
         tvContentBtn.setText(content);
+        invalidate();
+        requestLayout();
+    }
+    public void setDefaultBtn()
+    {   mainBtn.clearAnimation();
+        tvSubAnswer.setVisibility(GONE);
+        tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle));
+        mainBtn.setBackground(context.getResources().getDrawable(R.drawable.state_default));
+
+        invalidate();
+        requestLayout();
+
+
+    }
+    public void selectBtn()
+    {
+        tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle));
+        mainBtn.setBackground(context.getResources().getDrawable(R.drawable.state_select));
+        invalidate();
+        requestLayout();
+    }
+    public void setFocusBtn()
+    {
+
+        tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle));
+        mainBtn.setBackground(context.getResources().getDrawable(R.drawable.state_focus));
+        invalidate();
+        requestLayout();
+    }
+    public void setStatusTrue(String subAnswer)
+    {
+        tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle_true));
+        mainBtn.setBackground(context.getResources().getDrawable(R.drawable.background_button));
+        tvSubAnswer.setVisibility(VISIBLE);
+        tvSubAnswer.setBackground(context.getResources().getDrawable(R.drawable.background_button));
+        tvSubAnswer.setText(subAnswer);
+        mainBtn.startAnimation(AnimationUtils.loadAnimation(context,R.anim.blur));
+        invalidate();
+        requestLayout();
+    }
+    public void setStatusWrong(String subAnswer)
+    {
+        tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_cirrcle_wrong));
+        mainBtn.setBackground(context.getResources().getDrawable(R.drawable.background_state_wrong));
+        tvSubAnswer.setVisibility(VISIBLE);
+        tvSubAnswer.setBackground(context.getResources().getDrawable(R.drawable.background_state_wrong));
+        tvSubAnswer.setText(subAnswer);
+        mainBtn.startAnimation(AnimationUtils.loadAnimation(context,R.anim.blur));
         invalidate();
         requestLayout();
     }
@@ -66,50 +118,7 @@ public class ItemBtnSelect extends RelativeLayout{
         tvContentBtn.invalidate();
         tvContentBtn.requestLayout();
     }
-    public  void changeBackGroundTitle(int type)
-    {
-        if(type==0)
-        {
-            Drawable drawable=context.getResources().getDrawable(R.drawable.background_circle);
-            tvTitle.setBackground(drawable);
-            requestLayout();
-        }
-        else {
-            Drawable drawable=context.getResources().getDrawable(R.drawable.background_cirrcle_wrong);
-            tvTitle.setBackground(drawable);
-            requestLayout();
-        }
-    }
-   public void setBackGroundTitle(int type)
-   {
-       switch (type)
-       {
-           case 0://dèaul
-               tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle));
-               break;
-           case 1://true
-               tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle_true));
-               break;
-           case 2:
-               tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_cirrcle_wrong));
-               break;
 
-       }
-   }
-    public void changeBackGround(int id)
-    {
-        setBackground(context.getResources().getDrawable(id));
-    }
-    public void setSelected(boolean selected)
-    {
-        if(selected)
-        {
-            setBackground(context.getResources().getDrawable(R.drawable.state_select));
-        }
-        else {
-            setBackground(context.getResources().getDrawable(R.drawable.state_default));
-        }
-    }
 
 
 }

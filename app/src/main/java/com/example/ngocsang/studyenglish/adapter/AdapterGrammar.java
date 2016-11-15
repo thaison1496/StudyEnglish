@@ -61,6 +61,7 @@ public class AdapterGrammar extends EnglishBaseAdapter<ItemGrammar>{
             @Override
             public void onClick(View v) {
                 ContestGrammarFragment grammarFragment=new ContestGrammarFragment();
+                grammarFragment.setItemGrammar(mData.get(position));
                 grammarFragment.setArrQuestion(dataBaseManager.getQuestionContest());
                 mainActivity.replaceFullScreen(grammarFragment,true, TagFragment.CONTEST_FRAGMENT);
 

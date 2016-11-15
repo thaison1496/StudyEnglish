@@ -1,6 +1,8 @@
 package com.example.ngocsang.studyenglish.screen.fragment.study.Grammar;
 
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,9 @@ import android.widget.TextView;
 
 import com.example.ngocsang.studyenglish.R;
 import com.example.ngocsang.studyenglish.constant.Constant;
+import com.example.ngocsang.studyenglish.model.ItemGrammar;
 import com.example.ngocsang.studyenglish.model.ItemQuestion;
+import com.example.ngocsang.studyenglish.screen.fragment.base.BaseFragment;
 import com.example.ngocsang.studyenglish.screen.fragment.base.BaseFullScreenFragment;
 import com.example.ngocsang.studyenglish.widget.ItemBtnSelect;
 
@@ -21,11 +25,17 @@ import java.util.ArrayList;
  * Created by PhamVanLong on 11/8/2016.
  */
 
-public class ContestGrammarFragment extends BaseFullScreenFragment {
+public class ContestGrammarFragment extends BaseFragment {
     private ItemBtnSelect btnA, btnB, btnC, btnD;
     private TextView tvCountQuestion, tvContentQuestion;
     private ArrayList<ItemBtnSelect> arrBtn;
     private ArrayList<ItemQuestion> arrQuestion;
+    private ItemGrammar itemGrammar;
+
+    public void setItemGrammar(ItemGrammar itemGrammar) {
+        this.itemGrammar = itemGrammar;
+    }
+
     private int currentPosition = -1;
     private int countQuestion=0;
     private int score=0;
@@ -43,10 +53,11 @@ public class ContestGrammarFragment extends BaseFullScreenFragment {
         this.arrQuestion = arrQuestion;
     }
 
+    @Nullable
     @Override
-    protected void addView(LayoutInflater inflater, ViewGroup container) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         contentView = inflater.inflate(R.layout.contest_grammar_fragment, container, false);
-        containerView.addView(contentView);
+        return contentView;
     }
 
     @Override
@@ -54,17 +65,17 @@ public class ContestGrammarFragment extends BaseFullScreenFragment {
         super.findViews();
         btnCheck = (Button) contentView.findViewById(R.id.btn_check_question);
         btnA = (ItemBtnSelect) contentView.findViewById(R.id.btn_a);
+        btnA.setDefaultBtn();
         btnA.setTvTitle("A");
         btnB = (ItemBtnSelect) contentView.findViewById(R.id.btn_b);
+        btnB.setDefaultBtn();
         btnB.setTvTitle("B");
         btnC = (ItemBtnSelect) contentView.findViewById(R.id.btn_c);
+        btnC.setDefaultBtn();
         btnC.setTvTitle("C");
         btnD = (ItemBtnSelect) contentView.findViewById(R.id.btn_d);
+        btnD.setDefaultBtn();
         btnD.setTvTitle("D");
-        btnA.changeBackGround(R.drawable.state_default);
-        btnB.changeBackGround(R.drawable.state_default);
-        btnC.changeBackGround(R.drawable.state_default);
-        btnD.changeBackGround(R.drawable.state_default);
         arrBtn = new ArrayList<>();
         arrBtn.add(btnA);
         arrBtn.add(btnB);
@@ -79,7 +90,7 @@ public class ContestGrammarFragment extends BaseFullScreenFragment {
     @Override
     protected void setUpScreen() {
         super.setUpScreen();
-        setTitle("Làm Bài Test");
+
     }
 
     @Override
@@ -109,9 +120,18 @@ public class ContestGrammarFragment extends BaseFullScreenFragment {
         btnC.clearAnimation();
         btnD.clearAnimation();
     }
-    private void nextQuestion(int position)
-    {
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        initDataQuestion(0);
+        clearBtn();
     }
 
     @Override
@@ -168,6 +188,54 @@ public class ContestGrammarFragment extends BaseFullScreenFragment {
                 setSelectPosition(3);
             }
         });
+        btnA.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus)
+                {
+                    btnA.setFocusBtn();
+                }
+                else {
+                    btnA.setDefaultBtn();
+                }
+            }
+        });
+        btnB.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus)
+                {
+                    btnB.setFocusBtn();
+                }
+                else {
+                    btnB.setDefaultBtn();
+                }
+            }
+        });
+        btnC.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus)
+                {
+                    btnC.setFocusBtn();
+                }
+                else {
+                    btnC.setDefaultBtn();
+                }
+            }
+        });
+        btnD.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus)
+                {
+                    btnD.setFocusBtn();
+                }
+                else {
+                    btnD.setDefaultBtn();
+                }
+            }
+        });
     }
 
     private void setSelectPosition(int position) {
@@ -175,9 +243,9 @@ public class ContestGrammarFragment extends BaseFullScreenFragment {
         isSelect=true;
         for (int i = 0; i < arrBtn.size(); i++) {
             if (i == position) {
-                arrBtn.get(position).setSelected(true);
+                arrBtn.get(position).selectBtn();
             } else {
-                arrBtn.get(i).setSelected(false);
+                arrBtn.get(i).setDefaultBtn();
             }
 
         }
@@ -190,22 +258,19 @@ public class ContestGrammarFragment extends BaseFullScreenFragment {
         if(positionAnswer==(currentBtn))
         {
              score++;
-            arrBtn.get(currentBtn).changeBackGround(R.drawable.background_button);
-            arrBtn.get(currentBtn).setBackGroundTitle(1);
-            arrBtn.get(currentBtn).startAnimation(AnimationUtils.loadAnimation(mActivity,R.anim.blur));
+            arrBtn.get(currentBtn).setStatusTrue(arrQuestion.get(currentPosition).getSubAnswer());
         }
         else {
-            arrBtn.get(positionAnswer).changeBackGround(R.drawable.background_button);
-            arrBtn.get(positionAnswer).setBackGroundTitle(1);
-            arrBtn.get(currentBtn).changeBackGround(R.drawable.background_state_wrong);
-            arrBtn.get(currentBtn).setBackGroundTitle(2);
-            arrBtn.get(currentBtn).startAnimation(AnimationUtils.loadAnimation(mActivity,R.anim.blur));
+            arrBtn.get(positionAnswer).setStatusTrue(arrQuestion.get(currentPosition).getSubAnswer());
+            arrBtn.get(currentBtn).setStatusWrong(arrQuestion.get(currentPosition).getSubAnswer());
+
 
         }
         if(countQuestion==20)
         {
             ScoreFragment scoreFragment=new ScoreFragment();
             scoreFragment.setScore(score);
+            scoreFragment.setItemGrammar(itemGrammar);
             mActivity.replaceFullScreen(scoreFragment,true,"scorefragment");
         }
 
@@ -230,8 +295,7 @@ public class ContestGrammarFragment extends BaseFullScreenFragment {
         isSelect=false;
         for (int i=0;i<arrBtn.size();i++)
         {
-            arrBtn.get(i).setSelected(false);
-            arrBtn.get(i).setBackGroundTitle(0);
+            arrBtn.get(i).setDefaultBtn();
         }
     }
 

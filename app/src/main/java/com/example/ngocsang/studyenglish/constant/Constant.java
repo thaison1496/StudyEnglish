@@ -13,6 +13,12 @@ public interface Constant {
     String   PRESENT_PERFECT_TENSE="  PRESENT PERFECT TENSE ";
     int STATUS_CHECK=0;
     int STATUS_NEXT_QUESTION=1;
+    String ID_GRAMMAR="id";
+    String INDEX_GRAMMAR="indexGrammar";
+    String TITL_GRAMMAR="titleGrammar";
+    String LEVEL_GRAMMAR="level";
+    String CONTENT_GRAMMAR="contentGrammar";
+    String TABLE_NGU_PHAP="nguphap";
 
 
 
