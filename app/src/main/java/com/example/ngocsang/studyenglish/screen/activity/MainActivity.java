@@ -82,9 +82,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
-        else {
-            super.onBackPressed();
+
+
+        if(getFragmentManager().findFragmentByTag("scorefragment")!=null)
+        {
+            for(int i=0;i<2;i++)
+            {
+                getFragmentManager().popBackStack();
+            }
         }
+            super.onBackPressed();
+
 
 
     }

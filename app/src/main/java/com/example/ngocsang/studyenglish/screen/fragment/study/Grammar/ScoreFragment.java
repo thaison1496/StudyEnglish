@@ -34,7 +34,7 @@ public class ScoreFragment extends BaseFragment {
         this.itemGrammar = itemGrammar;
     }
 
-    private int score;
+    private int score=-1;
     private RatingBar ratingBar;
 
     @Nullable

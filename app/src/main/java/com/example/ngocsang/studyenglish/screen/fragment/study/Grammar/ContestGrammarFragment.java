@@ -47,7 +47,7 @@ public class ContestGrammarFragment extends BaseFragment {
     private int currentBtn = -1;
     private boolean isSelect=false;
     private Button btnCheck;
-    private int status = Constant.STATUS_CHECK;
+    private int status = -1;
 
     public void setArrQuestion(ArrayList<ItemQuestion> arrQuestion) {
         this.arrQuestion = arrQuestion;
@@ -97,12 +97,15 @@ public class ContestGrammarFragment extends BaseFragment {
     protected void init() {
         super.init();
         initDataQuestion(0);
+        status = Constant.STATUS_CHECK;
+        score=0;
 
 
     }
 
     private void initDataQuestion(int position) {
         currentPosition = position;
+        countQuestion=position+1;
         isSelect=false;
         tvCountQuestion.setText("Câu " + (position+1) + "/20");
         if(arrQuestion!=null)
@@ -130,8 +133,6 @@ public class ContestGrammarFragment extends BaseFragment {
     @Override
     public void onStart() {
         super.onStart();
-        initDataQuestion(0);
-        clearBtn();
     }
 
     @Override
@@ -253,7 +254,6 @@ public class ContestGrammarFragment extends BaseFragment {
     }
 
     private void checkQuestion() {
-        countQuestion++;
         int positionAnswer=getTrueAnswer(currentPosition);
         if(positionAnswer==(currentBtn))
         {
