@@ -43,10 +43,14 @@ public class StudyFragment extends BaseFragment{
     protected void init() {
         super.init();
         arrLesson=new ArrayList<>();
-        arrLesson.add(new ItemLesson(R.drawable.item_grammar,"Ngữ Pháp"));
-        arrLesson.add(new ItemLesson(R.drawable.item_communicate,"Giao Tiếp"));
-        arrLesson.add(new ItemLesson(R.drawable.item_listening,"Luyện Nghe"));
-        arrLesson.add(new ItemLesson(R.drawable.item_speak,"Luyện Nói"));
+        arrLesson.add(new ItemLesson(R.drawable.item_grammar,"Học ngữ pháp",R.color.Blue_Grey));
+        arrLesson.add(new ItemLesson(R.drawable.item_communicate,"Giao tiếp theo chủ đề",R.color.Light_Green));
+        arrLesson.add(new ItemLesson(R.drawable.item_listening,"Luyện nghe đọc",R.color.Light_Blue));
+        arrLesson.add(new ItemLesson(R.drawable.item_speak,"Từ vựng",R.color.Deep_Orange));
+
+
+
+
         adapterLesson=new AdapterLesson(arrLesson,mActivity);
         lvLesson.setAdapter(adapterLesson);
 

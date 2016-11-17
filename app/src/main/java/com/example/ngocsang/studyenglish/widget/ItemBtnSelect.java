@@ -84,24 +84,29 @@ public class ItemBtnSelect extends RelativeLayout{
         invalidate();
         requestLayout();
     }
-    public void setStatusTrue(String subAnswer)
+    public void setStatus(String subAnswer,boolean right)
     {
-        tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle_true));
-        mainBtn.setBackground(context.getResources().getDrawable(R.drawable.background_button));
         tvSubAnswer.setVisibility(VISIBLE);
-        tvSubAnswer.setBackground(context.getResources().getDrawable(R.drawable.background_button));
+        if(right)
+        {     tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle_true));
+            mainBtn.setBackground(context.getResources().getDrawable(R.drawable.background_button));
+            tvSubAnswer.setBackground(context.getResources().getDrawable(R.drawable.background_button));
+        }
+        else {
+            tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_cirrcle_wrong));
+            mainBtn.setBackground(context.getResources().getDrawable(R.drawable.background_state_wrong));
+            tvSubAnswer.setBackground(context.getResources().getDrawable(R.drawable.background_state_wrong));
+        }
+
         tvSubAnswer.setText(subAnswer);
         mainBtn.startAnimation(AnimationUtils.loadAnimation(context,R.anim.blur));
         invalidate();
         requestLayout();
     }
-    public void setStatusWrong(String subAnswer)
+    public void setStatusTrue()
     {
-        tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_cirrcle_wrong));
-        mainBtn.setBackground(context.getResources().getDrawable(R.drawable.background_state_wrong));
-        tvSubAnswer.setVisibility(VISIBLE);
-        tvSubAnswer.setBackground(context.getResources().getDrawable(R.drawable.background_state_wrong));
-        tvSubAnswer.setText(subAnswer);
+        tvTitle.setBackground(context.getResources().getDrawable(R.drawable.background_circle_true));
+        mainBtn.setBackground(context.getResources().getDrawable(R.drawable.background_button));
         mainBtn.startAnimation(AnimationUtils.loadAnimation(context,R.anim.blur));
         invalidate();
         requestLayout();

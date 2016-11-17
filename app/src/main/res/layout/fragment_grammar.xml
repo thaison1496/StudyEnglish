@@ -6,7 +6,6 @@
 <GridView
     android:layout_width="match_parent"
     android:numColumns="2"
-    android:paddingTop="10dp"
     android:horizontalSpacing="10dp"
     android:verticalSpacing="10dp"
     android:stretchMode="columnWidth"

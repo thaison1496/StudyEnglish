@@ -258,11 +258,11 @@ public class ContestGrammarFragment extends BaseFragment {
         if(positionAnswer==(currentBtn))
         {
              score++;
-            arrBtn.get(currentBtn).setStatusTrue(arrQuestion.get(currentPosition).getSubAnswer());
+            arrBtn.get(currentBtn).setStatus(arrQuestion.get(currentPosition).getSubAnswer(),true);
         }
         else {
-            arrBtn.get(positionAnswer).setStatusTrue(arrQuestion.get(currentPosition).getSubAnswer());
-            arrBtn.get(currentBtn).setStatusWrong(arrQuestion.get(currentPosition).getSubAnswer());
+            arrBtn.get(positionAnswer).setStatusTrue();
+            arrBtn.get(currentBtn).setStatus(arrQuestion.get(currentPosition).getSubAnswer(),false);
 
 
         }

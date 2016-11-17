@@ -6,10 +6,17 @@ package com.example.ngocsang.studyenglish.model;
 
 public class ItemLesson {
     private int idImage;
+    private int background;
     private String title;
 
-    public ItemLesson(int idImage, String title) {
+    public int getBackground() {
+        return background;
+    }
+
+    public ItemLesson(int idImage, String title, int background) {
         this.idImage = idImage;
+        this.background=background;
+
         this.title = title;
     }
 
