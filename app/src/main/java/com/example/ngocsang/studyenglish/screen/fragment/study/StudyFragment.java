@@ -46,8 +46,11 @@ public class StudyFragment extends BaseFragment{
         arrLesson=new ArrayList<>();
         arrLesson.add(new ItemLesson(R.drawable.item_grammar,"Học ngữ pháp",R.color.Blue_Grey));
         arrLesson.add(new ItemLesson(R.drawable.item_communicate,"Giao tiếp theo chủ đề",R.color.Light_Green));
-        arrLesson.add(new ItemLesson(R.drawable.item_listening,"Luyện nghe đọc",R.color.Light_Blue));
+        arrLesson.add(new ItemLesson(R.drawable.item_listening,"Luyện nghe",R.color.Light_Blue));
         arrLesson.add(new ItemLesson(R.drawable.item_speak,"Từ vựng",R.color.Deep_Orange));
+        arrLesson.add(new ItemLesson(R.drawable.conversation,"Luyện nói",R.color.color_pink));
+        arrLesson.add(new ItemLesson(R.drawable.tuvung,"Từ Điển",R.color.color_lime));
+
 
 
 
@@ -81,6 +84,11 @@ public class StudyFragment extends BaseFragment{
                 break;
             case 3:
                 break;
+            case 4:
+                break;
+            case 5:
+                break;
+
         }
     }
 }

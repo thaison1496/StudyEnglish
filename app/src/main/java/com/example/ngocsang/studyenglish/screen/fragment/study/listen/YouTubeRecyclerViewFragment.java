@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.ngocsang.studyenglish.R;
+import com.example.ngocsang.studyenglish.screen.fragment.base.BaseFragment;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.PlaylistListResponse;
 import com.google.api.services.youtube.model.Video;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class YouTubeRecyclerViewFragment extends Fragment {
+public class YouTubeRecyclerViewFragment extends BaseFragment {
     private static final String ARG_YOUTUBE_PLAYLIST_IDS = "YOUTUBE_PLAYLIST_IDS";
     private static final int SPINNER_ITEM_LAYOUT_ID = android.R.layout.simple_spinner_item;
     private static final int SPINNER_ITEM_DROPDOWN_LAYOUT_ID = android.R.layout.simple_spinner_dropdown_item;

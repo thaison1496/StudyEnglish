@@ -17,6 +17,8 @@
     <color name="Light_Blue">#01579B</color>
     <color name="Light_Green">#8BC34A</color>
     <color name="semi_transparent_black">#90000000</color>
+    <color name="color_pink">#E91E63</color>
+    <color name="color_lime">#CDDC39</color>
 
 
 </resources>

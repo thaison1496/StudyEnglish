@@ -1,5 +1,7 @@
 package com.example.ngocsang.studyenglish.screen.fragment.study.listen;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
@@ -26,8 +28,22 @@ public abstract class GetPlaylistAsyncTask extends AsyncTask<String, Void, Pair<
 
     private YouTube mYouTubeDataApi;
 
-    public GetPlaylistAsyncTask(YouTube api) {
+    public GetPlaylistAsyncTask(YouTube api)
+    {
         mYouTubeDataApi = api;
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+
+    }
+
+    @Override
+    protected void onPostExecute(Pair<String, List<Video>> stringListPair) {
+        super.onPostExecute(stringListPair);
+
     }
 
     @Override
