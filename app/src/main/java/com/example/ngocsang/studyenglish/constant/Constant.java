@@ -19,6 +19,11 @@ public interface Constant {
     String LEVEL_GRAMMAR="level";
     String CONTENT_GRAMMAR="contentGrammar";
     String TABLE_NGU_PHAP="nguphap";
+    String YOUTUBE_API="AIzaSyDypXs0yo7cd2C0Ji9PZzyIgl8edvhd2Xo";
+    String VOA="PLkTZ4KX04DR7nJcEJtOcAXnyNRtM6KeLa";
+    String BBC_LEARNING_ENGLISH="PLQIOImqvE8MP_rNeaQqezddV6JxZqOjF6";
+    String TIENG_ANH_MOI_NGAY="PLyoOrIjP_ibHn5mOxObSOJiD3eMcGfxAk";
+    String TIENG_ANH_QUA_BAI_HAT="PLZE6HXAMpT5EElmBB6jrlzAwUqwc7hISI";
 
 
 

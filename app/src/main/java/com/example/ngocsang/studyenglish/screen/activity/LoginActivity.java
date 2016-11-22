@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.ngocsang.studyenglish.R;
 import com.example.ngocsang.studyenglish.constant.Constant;
+import com.example.ngocsang.studyenglish.utils.DialogUtil;
 import com.example.ngocsang.studyenglish.utils.SharePreferencesUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText edtAccount,edtPassWord;
     private TextInputLayout account,pass;
-    private Button login;
+    private Button login,register;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener listener;
     private CheckBox checkBox;
@@ -56,6 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         account=(TextInputLayout) findViewById(R.id.text_input_account);
         pass=(TextInputLayout) findViewById(R.id.text_input_pass_word);
         checkBox=(CheckBox)findViewById(R.id.check_maintain_login);
+        register=(Button)findViewById(R.id.btn_register);
     }
     private void init()
     {
@@ -76,6 +78,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void declareClick()
     {
         login.setOnClickListener(this);
+        register.setOnClickListener(this);
         edtAccount.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -115,6 +118,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+    private void doRegister()
+    {
+        if(edtAccount.getText().toString().equals(""))
+        {
+            account.setError("Bạn phải nhập tài khoản!");
+            return;
+        }
+        if(edtPassWord.getText().toString().equals(""))
+        {
+            account.setError("Bạn phải nhập mật khẩu!");
+            return;
+        }
+        DialogUtil.showLoading(getApplicationContext());
+        String email=edtAccount.getText().toString();
+        String passWord=edtPassWord.getText().toString();
+        auth.createUserWithEmailAndPassword(email,passWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful())
+                {   DialogUtil.disMissLoading();
+                    Toast.makeText(getApplicationContext(),"Đăng kí thành công! Mời bạn tiếp tục đăng nhập.",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    DialogUtil.disMissLoading();
+                    Toast.makeText(getApplicationContext(),"Đăng kí xảy ra lỗi!",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
    private void doLogin()
    {
         if(edtAccount.getText().toString().equals(""))
@@ -127,23 +159,37 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
            account.setError("Bạn phải nhập mật khẩu!");
            return;
        }
+       DialogUtil.showLoading(getApplicationContext());
        String email=edtAccount.getText().toString();
        String passWord=edtPassWord.getText().toString();
                 auth.signInWithEmailAndPassword(email,passWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                            if(task.isSuccessful())
-                           {
-
+                           {   DialogUtil.disMissLoading();
+                               Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                               startActivity(i);
+                               overridePendingTransition(R.anim.icon_anim_fade_in, R.anim.icon_anim_fade_out);
+                               finish();
                            }
                         else {
+                               DialogUtil.disMissLoading();
                                Toast.makeText(getApplicationContext(),"Đăng nhập xảy ra lỗi",Toast.LENGTH_LONG).show();
                            }
                     }
                 });
    }
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)
+    {   switch (view.getId())
+    {
+        case R.id.btn_register:
+            doRegister();
+            break;
+        case R.id.btn_login:
+            doLogin();
+            break;
+    }
         doLogin();
     }
 }

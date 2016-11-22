@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.ngocsang.studyenglish.R;
 
@@ -56,6 +57,7 @@ private static DialogUtil mInstance;
         if(context!=null&&isShowing==false)
     {
         dialog=getDialog(context);
+        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_loading);
         dialog.setCancelable(false);

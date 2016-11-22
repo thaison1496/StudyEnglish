@@ -16,6 +16,7 @@
     <color name="color_black">#000000</color>
     <color name="Light_Blue">#01579B</color>
     <color name="Light_Green">#8BC34A</color>
+    <color name="semi_transparent_black">#90000000</color>
 
 
 </resources>

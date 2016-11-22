@@ -69,8 +69,20 @@
         android:textColor="@android:color/white"
         android:layout_marginTop="10dp"
         android:id="@+id/btn_login"
+        android:layout_marginLeft="80dp"
         android:background="@drawable/background_button"
         android:layout_below="@+id/check_maintain_login"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Đăng Kí"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_register"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/btn_login"
+        android:layout_below="@+id/check_maintain_login"
+        android:textColor="@android:color/white"
+        android:background="@drawable/background_button"
+
         android:layout_height="wrap_content" />
 </RelativeLayout>

@@ -8,4 +8,5 @@ public interface TagFragment {
     String GRAMMAR_FRAGMENT="grammar";
     String DETAIL_GRAMMAR="detailGrammar";
     String CONTEST_FRAGMENT="contest_fragment";
+    String SCREEN_LISTEN="screen_listen";
 }

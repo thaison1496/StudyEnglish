@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_menu);
+        HomeFragment homeFragment=new HomeFragment();
+        replaceMainFragment(homeFragment,false,"home");
+        toolbar.setTitle("Trang Chủ");
 
     }
     private void declareClicks()
@@ -82,16 +85,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
-
-
-        if(getFragmentManager().findFragmentByTag("scorefragment")!=null)
-        {
-            for(int i=0;i<2;i++)
-            {
-                getFragmentManager().popBackStack();
-            }
-        }
+        else {
             super.onBackPressed();
+        }
+
 
 
 

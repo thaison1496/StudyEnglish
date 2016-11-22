@@ -52,5 +52,11 @@ dependencies {
     compile 'com.github.silvestrpredko:dot-progress-bar:1.0'
     compile 'com.firebase:firebase-client-android:2.3.1'
     compile 'com.firebaseui:firebase-ui-auth:0.4.0'
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.google.apis:google-api-services-youtube:v3-rev149-1.20.0'
+    compile 'com.google.http-client:google-http-client-android:1.20.0'
+    compile 'com.google.api-client:google-api-client-android:1.20.0'
+    compile 'com.google.api-client:google-api-client-gson:1.20.0'
 }
 apply plugin: 'com.google.gms.google-services'
