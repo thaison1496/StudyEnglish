@@ -32,6 +32,10 @@ public interface Constant {
     String HEALTH_REPORT="PLDED49243CC4118C3";
     String TECHNOLOGY_REPORT="PL02D94E1D33933A51";
     String NEWS_WORDS="PLzFe11LJLRXUH2yf1v1Zey47kqwZV3pT1";
+    String HỌC_GIAO_TIẾP_CƠ_BẢN="PLE8OYNi4zxGYjTCZQaPAOSxf8Y_4fO_vO";
+    String LUYỆN_PHÁT_ÂM="PL3bvZhzOtrDfVqdhLXYtIDkP5vnWQ2xUK";
+    String LUYỆN_NGỮ_ÂM="PLjF0sGXd83M2iSfvraPH05LZyt-Sw1-GT";
+    String HOC_CUNG_CO_HOA="PLnwkiTgOYjUxYE3k-PmdlCUWaiq7VtGhd";
 
 
 

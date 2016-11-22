@@ -15,6 +15,7 @@ import com.example.ngocsang.studyenglish.model.ItemLesson;
 import com.example.ngocsang.studyenglish.screen.fragment.base.BaseFragment;
 import com.example.ngocsang.studyenglish.screen.fragment.study.Grammar.GrammarFragment;
 import com.example.ngocsang.studyenglish.screen.fragment.study.listen.ScreenListenFragment;
+import com.example.ngocsang.studyenglish.screen.fragment.study.speak.ScreenSpeakFragment;
 
 import java.util.ArrayList;
 
@@ -85,6 +86,7 @@ public class StudyFragment extends BaseFragment{
             case 3:
                 break;
             case 4:
+                mActivity.replaceFullScreen(new ScreenSpeakFragment(),true, TagFragment.SCREEN_SPEAK);
                 break;
             case 5:
                 break;
