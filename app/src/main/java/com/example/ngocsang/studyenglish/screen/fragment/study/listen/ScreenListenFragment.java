@@ -26,6 +26,7 @@ public class ScreenListenFragment extends BaseFullScreenFragment{
     private ArrayList<PageTabFragment> arrPager;
     private ViewPagerAdapter pagerAdapter;
     private ListVideoFragment voa,bbcLearningEnglish,englishEveryDay,music;
+    private CollectionFragment collectionFragment;
     private YouTube mYoutubeDataApi;
     private final GsonFactory mJsonFactory = new GsonFactory();
     private final HttpTransport mTransport = AndroidHttp.newCompatibleTransport();
@@ -50,6 +51,7 @@ public class ScreenListenFragment extends BaseFullScreenFragment{
         mYoutubeDataApi = new YouTube.Builder(mTransport, mJsonFactory, null)
                 .setApplicationName(getResources().getString(R.string.app_name))
                 .build();
+        collectionFragment=new CollectionFragment();
         voa=new ListVideoFragment();
         voa.setmPlaylistVideos(new PlaylistVideos(Constant.VOA));
         voa.setmYouTubeDataApi(mYoutubeDataApi);
@@ -66,6 +68,7 @@ public class ScreenListenFragment extends BaseFullScreenFragment{
         arrPager.add(new PageTabFragment("BBC LEARNING ENGLISH",bbcLearningEnglish));
         arrPager.add(new PageTabFragment("ENGHLISH EVERY DAY",englishEveryDay));
         arrPager.add(new PageTabFragment("LISTEN MUSIC",music));
+        arrPager.add(new PageTabFragment("COLLECTIONS",collectionFragment));
         pagerAdapter=new ViewPagerAdapter(arrPager,getChildFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

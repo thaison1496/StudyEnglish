@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/white"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 <GridView
     android:layout_width="match_parent"
-    android:id="@+id/grid_list_lesson"
-    android:stretchMode="columnWidth"
-    android:scrollbars="none"
     android:numColumns="2"
+    android:id="@+id/grid_collection_video"
     android:layout_height="match_parent"></GridView>
-</RelativeLayout>
+</LinearLayout>

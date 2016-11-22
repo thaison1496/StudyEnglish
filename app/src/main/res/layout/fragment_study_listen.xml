@@ -9,7 +9,7 @@
     android:layout_height="60dp"
     android:background="@color/color_toolbar"
     app:tabGravity="center"
-    app:tabMode="fixed"
+    app:tabMode="scrollable"
     app:tabTextColor="@color/green_50"
     app:tabSelectedTextColor="@color/white"
     android:id="@+id/tab_layout"
