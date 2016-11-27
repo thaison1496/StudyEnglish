@@ -8,23 +8,4 @@
     android:scaleType="centerCrop"
     android:src="@drawable/bg_layout_header"
     android:layout_height="200dp" />
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="70dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="25dp"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/img_avatar_header"
-        android:src="@drawable/avatar"
-        android:layout_height="70dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Ngọc Sáng"
-        android:textSize="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:layout_toRightOf="@+id/img_avatar_header"
-        android:textColor="@android:color/white"
-        android:layout_height="wrap_content" />
 </RelativeLayout>

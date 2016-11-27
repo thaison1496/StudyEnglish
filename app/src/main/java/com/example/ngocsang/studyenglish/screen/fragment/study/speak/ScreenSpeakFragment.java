@@ -37,7 +37,7 @@ public class ScreenSpeakFragment extends BaseFullScreenFragment{
     @Override
     protected void addView(LayoutInflater inflater, ViewGroup container) {
        contentView=inflater.inflate(R.layout.screen_speak_fragment,container,false);
-        container.addView(contentView);
+       containerView.addView(contentView);
     }
     @Override
     protected void findViews() {
@@ -49,29 +49,29 @@ public class ScreenSpeakFragment extends BaseFullScreenFragment{
     @Override
     protected void init() {
         super.init();
-//        arrPager=new ArrayList<>();
-//        mYoutubeDataApi = new YouTube.Builder(mTransport, mJsonFactory, null)
-//                .setApplicationName(getResources().getString(R.string.app_name))
-//                .build();
-//        a=new ListVideoFragment();
-//        a.setmPlaylistVideos(new PlaylistVideos(Constant.HỌC_GIAO_TIẾP_CƠ_BẢN));
-//       a.setmYouTubeDataApi(mYoutubeDataApi);
-//       b=new ListVideoFragment();
-//        b.setmYouTubeDataApi(mYoutubeDataApi);
-//       b.setmPlaylistVideos(new PlaylistVideos(Constant.LUYỆN_NGỮ_ÂM));
-//      c=new ListVideoFragment();
-//       c.setmYouTubeDataApi(mYoutubeDataApi);
-//       c.setmPlaylistVideos(new PlaylistVideos(Constant.LUYỆN_PHÁT_ÂM));
-//       d=new ListVideoFragment();
-//       d.setmPlaylistVideos(new PlaylistVideos(Constant.HOC_CUNG_CO_HOA));
-//       d.setmYouTubeDataApi(mYoutubeDataApi);
-//        arrPager.add(new PageTabFragment("Giao Tiếp Cơ Bản",a));
-//        arrPager.add(new PageTabFragment("Luyện Ngũ Âm",b));
-//        arrPager.add(new PageTabFragment("Luyện Phát Âm",c));
-//        arrPager.add(new PageTabFragment("Học Cùng Cô Hoa",d));
-//        pagerAdapter=new ViewPagerAdapter(arrPager,getChildFragmentManager());
-//        viewPager.setAdapter(pagerAdapter);
-//        tabLayout.setupWithViewPager(viewPager);
+        arrPager=new ArrayList<>();
+        mYoutubeDataApi = new YouTube.Builder(mTransport, mJsonFactory, null)
+                .setApplicationName(getResources().getString(R.string.app_name))
+                .build();
+        a=new ListVideoFragment();
+        a.setmPlaylistVideos(new PlaylistVideos(Constant.HỌC_GIAO_TIẾP_CƠ_BẢN));
+       a.setmYouTubeDataApi(mYoutubeDataApi);
+       b=new ListVideoFragment();
+        b.setmYouTubeDataApi(mYoutubeDataApi);
+       b.setmPlaylistVideos(new PlaylistVideos(Constant.LUYỆN_NGỮ_ÂM));
+      c=new ListVideoFragment();
+       c.setmYouTubeDataApi(mYoutubeDataApi);
+       c.setmPlaylistVideos(new PlaylistVideos(Constant.LUYỆN_PHÁT_ÂM));
+       d=new ListVideoFragment();
+       d.setmPlaylistVideos(new PlaylistVideos(Constant.HOC_CUNG_CO_HOA));
+       d.setmYouTubeDataApi(mYoutubeDataApi);
+        arrPager.add(new PageTabFragment("Giao Tiếp Cơ Bản",a));
+        arrPager.add(new PageTabFragment("Luyện Ngũ Âm",b));
+        arrPager.add(new PageTabFragment("Luyện Phát Âm",c));
+        arrPager.add(new PageTabFragment("Học Cùng Cô Hoa",d));
+        pagerAdapter=new ViewPagerAdapter(arrPager,getChildFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
 
 
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <info.hoang8f.android.segmented.SegmentedGroup
+        xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        segmentedgroup:sc_tint_color="@color/blue"
+        segmentedgroup:sc_checked_text_color="#7C4DFF"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal"
+        segmentedgroup:sc_border_width="2dp"
+        segmentedgroup:sc_corner_radius="10dp">
+
+        <RadioButton
+            android:id="@+id/word_order_topic"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:checked="true"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Từ vựng theo chủ đề"
+            style="@style/RadioButton" />
+
+        <RadioButton
+            android:id="@+id/word_myselft"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Từ vựng của bạn"
+            style="@style/RadioButton" />
+    </info.hoang8f.android.segmented.SegmentedGroup>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:id="@+id/view_pager_word"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/radio_group"
+
+        >
+
+    </android.support.v4.view.ViewPager>
+</RelativeLayout>
