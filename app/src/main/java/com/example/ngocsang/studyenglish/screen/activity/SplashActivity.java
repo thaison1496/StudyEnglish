@@ -31,20 +31,10 @@ public class SplashActivity extends Activity{
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                if(SharePreferencesUtil.getBoolean(Constant.CHECK_LOGIN)==true)
-                {
                     Intent i = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(i);
                     overridePendingTransition(R.anim.icon_anim_fade_in, R.anim.icon_anim_fade_out);
                     finish();
-                }
-                else {
-                    Intent i=new Intent(SplashActivity.this,LoginActivity.class);
-                    startActivity(i);
-                    overridePendingTransition(R.anim.icon_anim_fade_in, R.anim.icon_anim_fade_out);
-                    finish();
-
-                }
 
             }
         },REQUEST_TIME_OUT);

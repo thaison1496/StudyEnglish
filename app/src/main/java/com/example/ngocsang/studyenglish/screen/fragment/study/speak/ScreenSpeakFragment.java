@@ -13,6 +13,7 @@ import com.example.ngocsang.studyenglish.screen.fragment.study.listen.Collection
 import com.example.ngocsang.studyenglish.screen.fragment.study.listen.ListVideoFragment;
 import com.example.ngocsang.studyenglish.screen.fragment.study.listen.PageTabFragment;
 import com.example.ngocsang.studyenglish.screen.fragment.study.listen.PlaylistVideos;
+import com.example.ngocsang.studyenglish.widget.CustomViewPager;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 
 public class ScreenSpeakFragment extends BaseFullScreenFragment{
     private TabLayout tabLayout;
-    private ViewPager viewPager;
+    private CustomViewPager viewPager;
     private ArrayList<PageTabFragment> arrPager;
     private ViewPagerAdapter pagerAdapter;
     private ListVideoFragment a,b,c,d;
@@ -43,7 +44,7 @@ public class ScreenSpeakFragment extends BaseFullScreenFragment{
     protected void findViews() {
         super.findViews();
         tabLayout=(TabLayout)contentView.findViewById(R.id.tab_layout_screen_speak);
-        viewPager=(ViewPager)contentView.findViewById(R.id.view_pager_screen_speak);
+        viewPager=(CustomViewPager)contentView.findViewById(R.id.view_pager_screen_speak);
     }
 
     @Override

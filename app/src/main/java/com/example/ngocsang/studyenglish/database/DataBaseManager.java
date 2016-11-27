@@ -10,6 +10,7 @@ import android.os.Environment;
 import com.example.ngocsang.studyenglish.constant.Constant;
 import com.example.ngocsang.studyenglish.model.ItemGrammar;
 import com.example.ngocsang.studyenglish.model.ItemQuestion;
+import com.example.ngocsang.studyenglish.model.ItemWord;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -64,6 +65,49 @@ public class DataBaseManager {
 
     public void cloaseDatabase(){
         database.close();
+    }
+    public ArrayList<ItemWord> getWordOrderTopic(int index)
+    {  openDatabase();
+        ArrayList<ItemWord> arr=new ArrayList<>();
+        Cursor c = database.rawQuery("select * from tudien where topicID="+index,null);
+        ItemWord itemWord=null;
+        c.moveToFirst();
+        while (!c.isAfterLast())
+        {
+            int id=c.getInt(c.getColumnIndex("id"));
+            String name=c.getString(c.getColumnIndex("name"));
+            String spelling=c.getString(c.getColumnIndex("spelling"));
+            String contain=c.getString(c.getColumnIndex("contain"));
+            String audio=c.getString(c.getColumnIndex("audio"));
+            int selected =c.getInt(c.getColumnIndex("selected"));
+            String topicName=c.getString(c.getColumnIndex("topicName"));
+            itemWord=new ItemWord(id,name,spelling,contain,audio,selected,topicName);
+            arr.add(itemWord);
+            c.moveToNext();
+        }
+        cloaseDatabase();
+        return arr;
+    }
+    public void updateValueSelect(ItemWord itemWord,boolean isSelect)
+    {
+        openDatabase();
+        int id=itemWord.getId();
+        ContentValues values=new ContentValues();
+        values.put("id",id);
+        values.put("name",itemWord.getName());
+        values.put("audio",itemWord.getAudio());
+        if(isSelect)
+        {
+            values.put("selected",1);
+        }
+        else {
+            values.put("selected",0);
+        }
+
+        values.put("contain",itemWord.getContain());
+        values.put("spelling",itemWord.getSpelling());
+        int row=database.update(Constant.TABLE_NGU_PHAP,values,"id = ?",new String[]{String.valueOf(itemWord.getId())});
+        cloaseDatabase();
     }
     public ArrayList<ItemGrammar> getAllGrammar()
     {

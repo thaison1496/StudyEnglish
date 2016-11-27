@@ -8,16 +8,15 @@ public class ItemWord {
 private int id;
     private String name,spelling,contain,topicName,audio;
     private int topicId;
-    private boolean isSelect;
+    private int isSelect;
 
-    public ItemWord(int id, String name, String spelling, String contain, String topicName, String audio, int topicId, boolean isSelect) {
+    public ItemWord(int id, String name, String spelling, String contain, String audio,int isSelect,String topicName) {
         this.id = id;
+        this.topicName=topicName;
         this.name = name;
         this.spelling = spelling;
         this.contain = contain;
-        this.topicName = topicName;
         this.audio = audio;
-        this.topicId = topicId;
         this.isSelect = isSelect;
     }
 
@@ -77,11 +76,11 @@ private int id;
         this.topicId = topicId;
     }
 
-    public boolean isSelect() {
+    public int isSelect() {
         return isSelect;
     }
 
-    public void setSelect(boolean select) {
+    public void setSelect(int select) {
         isSelect = select;
     }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/rl_root_topic"
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/img_topic"
+            android:src="@drawable/com_facebook_profile_picture_blank_square"
+            android:layout_height="60dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Farmer"
+            android:layout_toRightOf="@+id/img_topic"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:id="@+id/tv_topic"
+            android:textColor="@color/color_pink"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/tv_topic"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:id="@+id/tv_sub_title_topic"
+            android:textColor="@color/blue_A700"
+            android:layout_toRightOf="@+id/img_topic"
+            android:layout_marginTop="10dp"
+            android:text="Nông dân"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -8,6 +8,16 @@ public class ItemTopicWord {
     private String key,value;
     private int idImage;
 
+    public int getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(int topicId) {
+        this.topicId = topicId;
+    }
+
+    private int topicId;
+
     public String getKey() {
         return key;
     }
@@ -32,8 +42,8 @@ public class ItemTopicWord {
         this.idImage = idImage;
     }
 
-    public ItemTopicWord(String key, String value, int idImage) {
-
+    public ItemTopicWord(String key, String value, int idImage,int topicId) {
+        this.topicId=topicId;
         this.key = key;
         this.value = value;
         this.idImage = idImage;

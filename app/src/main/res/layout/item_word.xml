@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:background="@color/amber_100"
+    android:layout_height="80dp">
+<ImageView
+    android:layout_width="wrap_content"
+    android:src="@drawable/sound"
+    android:id="@+id/img_sound"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="20dp"
+    android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="hello"
+        android:textSize="20dp"
+        android:id="@+id/tv_key"
+        android:layout_toRightOf="@+id/img_sound"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Xin chào"
+        android:layout_below="@+id/tv_key"
+        android:id="@+id/tv_value"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="60dp"
+        android:layout_toRightOf="@+id/img_sound"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/btn_star_not_active"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/img_btn_star"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

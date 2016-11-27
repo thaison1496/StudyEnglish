@@ -7,7 +7,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.ngocsang.studyenglish.R;
+import com.example.ngocsang.studyenglish.adapter.ViewPagerAdapter;
 import com.example.ngocsang.studyenglish.screen.fragment.base.BaseFullScreenFragment;
+import com.example.ngocsang.studyenglish.screen.fragment.study.listen.PageTabFragment;
+
+import java.util.ArrayList;
 
 import info.hoang8f.android.segmented.SegmentedGroup;
 
@@ -18,6 +22,10 @@ import info.hoang8f.android.segmented.SegmentedGroup;
 public class StudyWordFragment extends BaseFullScreenFragment{
     private ViewPager viewPager;
     private SegmentedGroup segmentedGroup;
+    private WordMySelf wordMySelf;
+    private WordOrderTopic wordOrderTopic;
+    private ArrayList<PageTabFragment> arrPager;
+    private ViewPagerAdapter pagerAdapter;
 
     private RadioButton wordTopic,wordSelf;
     @Override
@@ -38,7 +46,20 @@ public class StudyWordFragment extends BaseFullScreenFragment{
     @Override
     protected void init() {
         super.init();
+        arrPager=new ArrayList<>();
+        wordMySelf=new WordMySelf();
+        wordOrderTopic=new WordOrderTopic();
+        arrPager.add(new PageTabFragment("Từ vựng theo chủ đề",wordOrderTopic));
+        arrPager.add(new PageTabFragment("Từ vựng của bạn",wordMySelf));
+        pagerAdapter=new ViewPagerAdapter(arrPager,getChildFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+    }
 
+
+    @Override
+    protected void setUpScreen() {
+        super.setUpScreen();
+        setTitle("Từ vựng");
     }
 
     @Override
