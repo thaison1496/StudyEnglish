@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="match_parent">
+    <View
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" android:layout_width="300dp"
+        android:background="@android:color/white"
+        android:layout_height="450dp"></View>
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:src="@drawable/btn_star_not_active"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="30dp"
+    android:id="@+id/btn_start_practive_word"
+
+    android:layout_alignParentRight="true"
+    android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="hello"
+        android:layout_centerHorizontal="true"
+        android:textSize="24dp"
+        android:id="@+id/tv_key_word"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/blue"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/tv_key_word"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/yellow_A200"
+        android:id="@+id/tv_spelling"
+        android:textSize="20dp"
+        android:text="/sdad/"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tv_mean_word"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_below="@+id/tv_spelling"
+        android:maxLines="5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Xin chào"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/sound"
+        android:id="@+id/btn_volum"
+        android:layout_below="@+id/tv_mean_word"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

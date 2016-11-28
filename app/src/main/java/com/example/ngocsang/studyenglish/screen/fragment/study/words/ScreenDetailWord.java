@@ -1,7 +1,9 @@
 package com.example.ngocsang.studyenglish.screen.fragment.study.words;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.ngocsang.studyenglish.R;
@@ -43,6 +45,20 @@ public class ScreenDetailWord extends BaseFullScreenFragment{
     protected void findViews() {
         super.findViews();
         lvWord=(ListView)contentView.findViewById(R.id.lv_word);
+    }
+
+    @Override
+    protected void declareClick() {
+        super.declareClick();
+        lvWord.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ScreenPractiveWord practiveWord=new ScreenPractiveWord();
+                practiveWord.setPositionDefault(position);
+                practiveWord.setArrayList(arr);
+                mActivity.replaceFullScreen(practiveWord,true,"practive");
+            }
+        });
     }
 
     @Override

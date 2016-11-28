@@ -1,6 +1,9 @@
 package com.example.ngocsang.studyenglish.screen.activity;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.speech.RecognizerIntent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,15 +16,22 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.ngocsang.studyenglish.R;
+import com.example.ngocsang.studyenglish.callback.OnReceiveVoice;
 import com.example.ngocsang.studyenglish.screen.fragment.forum.ForumFragment;
 import com.example.ngocsang.studyenglish.screen.fragment.home.HomeFragment;
 import com.example.ngocsang.studyenglish.screen.fragment.study.StudyFragment;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
+    private final int REQ_CODE_SPEECH_INPUT = 100;
+    private OnReceiveVoice receiveVoice;
     private View headerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
@@ -33,6 +43,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         findViews();
         init();
         declareClicks();
+    }
+    public void startVoice() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.UK);
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                "Giọng Nói");
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(),
+                    "không hỗ trợ",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void setReceiveVoice(OnReceiveVoice receiveVoice) {
+        this.receiveVoice = receiveVoice;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQ_CODE_SPEECH_INPUT: {
+                if (resultCode == RESULT_OK && null != data) {
+
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    if(receiveVoice!=null)
+                    {
+                        receiveVoice.onResult(result.get(0));
+                    }
+
+                }
+                break;
+            }
+
+        }
     }
     private void findViews()
     {

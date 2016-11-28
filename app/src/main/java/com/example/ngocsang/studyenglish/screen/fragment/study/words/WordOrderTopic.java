@@ -12,6 +12,7 @@ import com.example.ngocsang.studyenglish.R;
 import com.example.ngocsang.studyenglish.adapter.TopicAdapter;
 import com.example.ngocsang.studyenglish.model.ItemTopicWord;
 import com.example.ngocsang.studyenglish.screen.fragment.base.BaseFragment;
+import com.example.ngocsang.studyenglish.widget.ItemDecorationAlbumColumns;
 
 import java.util.ArrayList;
 
@@ -50,6 +51,7 @@ public class WordOrderTopic extends BaseFragment{
         arr.add(new ItemTopicWord("House","Nhà",R.drawable.house,8));
         topicAdapter=new TopicAdapter(arr,mActivity);
         lvTopic.setLayoutManager(new LinearLayoutManager(getContext()));
+        lvTopic.addItemDecoration(new ItemDecorationAlbumColumns(3,1));
         lvTopic.setHasFixedSize(true);
         lvTopic.setAdapter(topicAdapter);
     }

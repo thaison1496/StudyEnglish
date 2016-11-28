@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class ScreenSpeakFragment extends BaseFullScreenFragment{
     private TabLayout tabLayout;
-    private CustomViewPager viewPager;
+    private ViewPager viewPager;
     private ArrayList<PageTabFragment> arrPager;
     private ViewPagerAdapter pagerAdapter;
     private ListVideoFragment a,b,c,d;
@@ -44,7 +44,7 @@ public class ScreenSpeakFragment extends BaseFullScreenFragment{
     protected void findViews() {
         super.findViews();
         tabLayout=(TabLayout)contentView.findViewById(R.id.tab_layout_screen_speak);
-        viewPager=(CustomViewPager)contentView.findViewById(R.id.view_pager_screen_speak);
+        viewPager=(ViewPager)contentView.findViewById(R.id.view_pager_screen_speak);
     }
 
     @Override

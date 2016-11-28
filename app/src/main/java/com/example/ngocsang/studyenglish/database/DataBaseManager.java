@@ -66,6 +66,29 @@ public class DataBaseManager {
     public void cloaseDatabase(){
         database.close();
     }
+    public ArrayList<ItemWord> getWordFromMyList()
+    {
+        openDatabase();
+        ArrayList<ItemWord> arr=new ArrayList<>();
+        Cursor c = database.rawQuery("select * from tudien where selected="+1,null);
+        ItemWord itemWord=null;
+        c.moveToFirst();
+        while (!c.isAfterLast())
+        {
+            int id=c.getInt(c.getColumnIndex("id"));
+            String name=c.getString(c.getColumnIndex("name"));
+            String spelling=c.getString(c.getColumnIndex("spelling"));
+            String contain=c.getString(c.getColumnIndex("contain"));
+            String audio=c.getString(c.getColumnIndex("audio"));
+            int selected =c.getInt(c.getColumnIndex("selected"));
+            String topicName=c.getString(c.getColumnIndex("topicName"));
+            itemWord=new ItemWord(id,name,spelling,contain,audio,selected,topicName);
+            arr.add(itemWord);
+            c.moveToNext();
+        }
+        cloaseDatabase();
+        return arr;
+    }
     public ArrayList<ItemWord> getWordOrderTopic(int index)
     {  openDatabase();
         ArrayList<ItemWord> arr=new ArrayList<>();
@@ -88,6 +111,26 @@ public class DataBaseManager {
         cloaseDatabase();
         return arr;
     }
+
+    public void addWordToMyList(ItemWord itemWord)
+    {
+        openDatabase();
+        ContentValues values=new ContentValues();
+        values.put("name",itemWord.getName());
+        values.put("spelling",itemWord.getSpelling());
+        values.put("contain",itemWord.getContain());
+        values.put("audio",itemWord.getAudio());
+        values.put("topicID",itemWord.getTopicId());
+        values.put("selected",itemWord.isSelect());
+        database.insert("myword",null,values);
+        cloaseDatabase();
+    }
+    public void deleteWordFromList(ItemWord itemWord)
+    {
+
+        openDatabase();
+        database.delete("myword","name = "+itemWord.getName(), null);
+    }
     public void updateValueSelect(ItemWord itemWord,boolean isSelect)
     {
         openDatabase();
@@ -106,7 +149,7 @@ public class DataBaseManager {
 
         values.put("contain",itemWord.getContain());
         values.put("spelling",itemWord.getSpelling());
-        int row=database.update(Constant.TABLE_NGU_PHAP,values,"id = ?",new String[]{String.valueOf(itemWord.getId())});
+        int row=database.update("tudien",values,"id = ?",new String[]{String.valueOf(itemWord.getId())});
         cloaseDatabase();
     }
     public ArrayList<ItemGrammar> getAllGrammar()
