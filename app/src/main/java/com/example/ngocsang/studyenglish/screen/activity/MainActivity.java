@@ -99,10 +99,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_menu);
-        HomeFragment homeFragment=new HomeFragment();
-        replaceMainFragment(homeFragment,false,"home");
-        toolbar.setTitle("Trang Chủ");
-
+        StudyFragment studyFragment=new StudyFragment();
+        replaceMainFragment(studyFragment,false,"study");
+        toolbar.setTitle("Học Tập");
     }
     private void declareClicks()
     {
@@ -149,16 +148,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.home:
-                HomeFragment homeFragment=new HomeFragment();
-                replaceMainFragment(homeFragment,false,"home");
-                toolbar.setTitle("Trang Chủ");
-                break;
-            case R.id.forum:
-                ForumFragment forumFragment=new ForumFragment();
-                replaceMainFragment(forumFragment,false,"forum");
-                toolbar.setTitle("Diễn Đàn");
-                break;
             case R.id.study:
                 StudyFragment studyFragment=new StudyFragment();
                 replaceMainFragment(studyFragment,false,"study");
@@ -166,9 +155,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.setting:
                 toolbar.setTitle("Cài Đặt");
-                break;
-            case R.id.log_out:
-                toolbar.setTitle("Đăng Xuất");
                 break;
         }
         item.setChecked(true);

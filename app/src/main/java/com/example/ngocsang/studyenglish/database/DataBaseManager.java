@@ -89,6 +89,28 @@ public class DataBaseManager {
         cloaseDatabase();
         return arr;
     }
+    public ArrayList<ItemWord> getCommunicationOrderTopic(int index)
+    {  openDatabase();
+        ArrayList<ItemWord> arr=new ArrayList<>();
+        Cursor c = database.rawQuery("select * from comunication where kind="+index,null);
+        ItemWord itemWord=null;
+        c.moveToFirst();
+        while (!c.isAfterLast())
+        {
+            int id=c.getInt(c.getColumnIndex("id"));
+            String name=c.getString(c.getColumnIndex("key"));
+            String spelling="";
+            String contain=c.getString(c.getColumnIndex("value"));
+            String audio=c.getString(c.getColumnIndex("audio"));
+            int selected =c.getInt(c.getColumnIndex("isSelect"));
+            String topicName="";
+            itemWord=new ItemWord(id,name,spelling,contain,audio,selected,topicName);
+            arr.add(itemWord);
+            c.moveToNext();
+        }
+        cloaseDatabase();
+        return arr;
+    }
     public ArrayList<ItemWord> getWordOrderTopic(int index)
     {  openDatabase();
         ArrayList<ItemWord> arr=new ArrayList<>();

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class ScreenPractiveWord extends BaseFragment implements OnReceiveVoice{
     private ViewPager viewPager;
     private CustomPager customPager;
+    private boolean isInWord=true;
     private ArrayList<ItemWord> arrayList;
     private ImageView btnBack,btnSpeak;
     private int positionDefault=-1;
@@ -55,6 +56,7 @@ public class ScreenPractiveWord extends BaseFragment implements OnReceiveVoice{
     @Override
     protected void init() {
         super.init();
+
             customPager=new CustomPager(mActivity,arrayList);
           viewPager.setAdapter(customPager);
         viewPager.setPageTransformer(true,new CubeInTransformer());

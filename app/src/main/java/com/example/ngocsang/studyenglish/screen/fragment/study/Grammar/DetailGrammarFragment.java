@@ -17,7 +17,7 @@ import com.example.ngocsang.studyenglish.screen.fragment.base.BaseFullScreenFrag
  */
 
 public class DetailGrammarFragment extends BaseFullScreenFragment{
-    private TextView contentGrammar;
+    private TextView contentGrammar,tvTitle;
     private ItemGrammar itemGrammar;
     private Button btnPractice;
     private DataBaseManager dataBaseManager;
@@ -32,6 +32,7 @@ public class DetailGrammarFragment extends BaseFullScreenFragment{
         super.findViews();
         contentGrammar=(TextView)contentView.findViewById(R.id.tv_content_grammar);
         btnPractice=(Button)contentView.findViewById(R.id.btn_practice_detail_grammar);
+        tvTitle=(TextView)contentView.findViewById(R.id.tv_title);
     }
 
     public void setItemGrammar(ItemGrammar itemGrammar) {
@@ -55,7 +56,9 @@ public class DetailGrammarFragment extends BaseFullScreenFragment{
     @Override
     protected void setUpScreen() {
         super.setUpScreen();
-        setTitle(itemGrammar.getTitleGrammar());
+        setTitle("Ngữ Pháp");
+
+
     }
 
     @Override
@@ -63,6 +66,7 @@ public class DetailGrammarFragment extends BaseFullScreenFragment{
         super.init();
         contentGrammar.setText(itemGrammar.getContentGrammar());
         dataBaseManager=new DataBaseManager(mActivity);
+        tvTitle.setText(itemGrammar.getTitleGrammar());
 
     }
 }

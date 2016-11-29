@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.ngocsang.studyenglish.R;
 import com.example.ngocsang.studyenglish.model.ItemTopicWord;
 import com.example.ngocsang.studyenglish.screen.activity.MainActivity;
+import com.example.ngocsang.studyenglish.screen.fragment.study.communication.ScreenDetailCommucation;
 import com.example.ngocsang.studyenglish.screen.fragment.study.words.ScreenDetailWord;
 
 import java.util.ArrayList;
@@ -24,11 +25,21 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
     private ArrayList<ItemTopicWord> arr;
     private MainActivity context;
+    private boolean word=true;
     public TopicAdapter(ArrayList<ItemTopicWord> arr,MainActivity context)
     {
         this.arr=arr;
         this.context=context;
     }
+
+    public boolean isWord() {
+        return word;
+    }
+
+    public void setWord(boolean word) {
+        this.word = word;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_topic,parent,false);
@@ -43,10 +54,21 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
         holder.root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ScreenDetailWord detailWord=new ScreenDetailWord();
-                detailWord.setTitleScreen(arr.get(position).getKey());
-                detailWord.setIdTopic(arr.get(position).getTopicId());
-                context.replaceFullScreen(detailWord,true,"detail_screen_word");
+                if(word)
+                {
+                    ScreenDetailWord detailWord=new ScreenDetailWord();
+                    detailWord.setTitleScreen(arr.get(position).getKey());
+                    detailWord.setIdTopic(arr.get(position).getTopicId());
+                    context.replaceFullScreen(detailWord,true,"detail_screen_word");
+
+                }
+                else {
+                    ScreenDetailCommucation detailCommucation=new ScreenDetailCommucation();
+                    detailCommucation.setIdTopic(arr.get(position).getTopicId());
+                    detailCommucation.setTitleScreen(arr.get(position).getKey());
+                    context.replaceFullScreen(detailCommucation,true,"detail_screen_commuication");
+                }
+
             }
         });
     }

@@ -27,6 +27,16 @@ public class CustomPager extends PagerAdapter implements TextToSpeech.OnInitList
     private Context context;
     private TextToSpeech tts;
     private DataBaseManager dataBaseManager;
+    private boolean isInWord;
+
+    public boolean isInWord() {
+        return isInWord;
+    }
+
+    public void setInWord(boolean inWord) {
+        isInWord = inWord;
+    }
+
     private ArrayList<ItemWord> arr;
     public CustomPager(Context context,ArrayList<ItemWord> arr)
     {
@@ -49,6 +59,10 @@ public class CustomPager extends PagerAdapter implements TextToSpeech.OnInitList
         TextView tvKey=(TextView)view.findViewById(R.id.tv_key_word);
         TextView tvSpelling=(TextView)view.findViewById(R.id.tv_spelling);
         TextView tvMean=(TextView)view.findViewById(R.id.tv_mean_word);
+        if(!isInWord)
+        {
+            tvSpelling.setVisibility(View.GONE);
+        }
         if(arr.get(position).isSelect()==1)
         {
          btnStar.setImageResource(R.drawable.btn_star_active);
